@@ -1,11 +1,11 @@
 <div (rtclick)="onClick($event)" class="w-screen h-screen">
 
 @for (node of nodes; track $index) {
-
+  <app-synaps-node [node]="node" ></app-synaps-node>
 }
 
 @for (edge of edges; track $index) {
-  <perfect-arrow [source]="'#box'+edge.source.toString()" [target]="'#box'+edge.target.toString()"></perfect-arrow>
+  <app-synaps-edge [edge]="edge" ></app-synaps-edge>
 }
 
 

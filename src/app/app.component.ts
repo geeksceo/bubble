@@ -1,18 +1,21 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PerfectArrow } from 'perfect-arrow';
-import { DraggableBox } from './draggable-box';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { filter, fromEvent } from 'rxjs';
 import { RightClickDirective } from './directives/right-click.directive';
+import { SynapsNodeComponent } from './components/synaps-node/synaps-node.component';
+import { SynapsEdgeComponent } from './components/synaps-edge/synaps-edge.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, RightClickDirective],
+  imports: [
+    RouterOutlet,
+    ReactiveFormsModule, RightClickDirective,
+    SynapsNodeComponent, SynapsEdgeComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
   title = 'synaps';
@@ -28,9 +31,6 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder, private element: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
-
-    DraggableBox.register();
-    PerfectArrow.register();
 
     this.nodes = [
       {id: 1, left: '0px', top: '0px'},
