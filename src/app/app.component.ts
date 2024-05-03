@@ -4,6 +4,8 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RightClickDirective } from './directives/right-click.directive';
 import { SynapsNodeComponent } from './components/synaps-node/synaps-node.component';
 import { SynapsEdgeComponent } from './components/synaps-edge/synaps-edge.component';
+import { DraggableBox } from './draggable-box';
+import { PerfectArrow } from 'perfect-arrow';
 
 
 @Component({
@@ -31,6 +33,9 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder, private element: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
+
+    DraggableBox.register();
+    PerfectArrow.register();
 
     this.nodes = [
       {id: 1, left: '0px', top: '0px'},
