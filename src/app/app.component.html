@@ -1,4 +1,4 @@
-<div class="bg-red-400 w-screen h-screen">
+<div (rtclick)="onClick($event)" class="bg-red-400 w-screen h-screen">
 
 @for (node of nodes; track $index) {
   <draggable-box [id]="'box'+node.id.toString()" [style]="{left: node.left, top: node.top}"></draggable-box>

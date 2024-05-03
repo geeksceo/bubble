@@ -22,7 +22,8 @@ export class RightClickDirective {
   @HostListener('mousedown')
   onClick() {
     const mouseEvent: MouseEvent = event as MouseEvent;
-    if (mouseEvent.button !== 2) return;
+    console.log(mouseEvent.button)
+    // if (mouseEvent.button !== 2) return;
     this.event.emit(mouseEvent);
   }
 }

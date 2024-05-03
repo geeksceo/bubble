@@ -4,11 +4,12 @@ import { PerfectArrow } from 'perfect-arrow';
 import { DraggableBox } from './draggable-box';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { filter, fromEvent } from 'rxjs';
+import { RightClickDirective } from './directives/right-click.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule],
+  imports: [RouterOutlet, ReactiveFormsModule, RightClickDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -27,14 +28,6 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder, private element: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
-
-    fromEvent<PointerEvent>(document.body, 'contextmenu').pipe(
-      filter((ev: PointerEvent) =>
-        ev.target === this.element.nativeElement && ev.button == 2))
-      .subscribe((ev: PointerEvent) => {
-        console.log('ffff');
-        ev.preventDefault();
-      });
 
     DraggableBox.register();
     PerfectArrow.register();
@@ -55,11 +48,8 @@ export class AppComponent implements OnInit {
     this.nodes.push({id: this.nodes.length + 1, left: '320px', top: '80px'});
   }
 
-  @HostListener('mousedown')
-  onClick() {
-    const mouseEvent: MouseEvent = event as MouseEvent;
-    event?.preventDefault()
-    console.log(mouseEvent.button);
+  onClick(ev: MouseEvent) {
+    console.log(ev.button)
   }
 
   onSubmit() {
