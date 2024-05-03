@@ -9,6 +9,7 @@ export class DraggableBox extends HTMLElement {
       super();
 
       this.onMouseDrag = this.onMouseDrag.bind(this);
+      this.onMouseClick = this.onMouseClick.bind(this);
 
       this.addEventListener('mousedown', () => {
         window.addEventListener('mousemove', this.onMouseDrag);
@@ -25,5 +26,9 @@ export class DraggableBox extends HTMLElement {
       let topValue = parseInt(top);
       this.style.left = `${leftValue + movementX}px`;
       this.style.top = `${topValue + movementY}px`;
+    }
+
+    onMouseClick() {
+      console.log('clickckckck')
     }
   }

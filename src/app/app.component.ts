@@ -48,9 +48,7 @@ export class AppComponent implements OnInit {
     this.nodes.push({id: this.nodes.length + 1, left: '320px', top: '80px'});
   }
 
-  onClick(ev: MouseEvent) {
-    console.log(ev.button)
-  }
+  onClick(ev: MouseEvent) { }
 
   onSubmit() {
     const newEdge: {source: number, target: number} = {
