@@ -1,3 +1,36 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="bg-red-400 w-screen h-screen">
+
+@for (node of nodes; track $index) {
+  <draggable-box [id]="'box'+node.id.toString()" [style]="{left: node.left, top: node.top}"></draggable-box>
+}
+
+@for (edge of edges; track $index) {
+  <perfect-arrow [source]="'#box'+edge.source.toString()" [target]="'#box'+edge.target.toString()"></perfect-arrow>
+}
+
+
+<div class="absolute left-96 top-10 flex gap-4 items-center">
+  <a class=" bg-teal-700 px-4 py-1 text-white" (click)="addNode($event)" href="">Add node</a>
+
+    <form class="flex flex-col gap-3" [formGroup]="form" (ngSubmit)="onSubmit()" >
+      <select class="p-2" formControlName="source" id="">
+        <option value="0">Source node</option>
+        @for (node of nodes; track $index) {
+          <option [value]="node.id">Node {{ node.id }}</option>
+        }
+      </select>
+
+      <select class="p-2"  formControlName="target" id="">
+        <option value="0">Target node</option>
+        @for (node of nodes; track $index) {
+          <option [value]="node.id">Node {{ node.id }}</option>
+        }
+      </select>
+
+      <button type="submit" class="bg-teal-700 px-4 py-1 text-white">
+        Add edge
+      </button>
+
+    </form>
+</div>
+</div>

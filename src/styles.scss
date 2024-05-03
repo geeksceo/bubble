@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow: hidden;
+}
+
+draggable-box {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    position: absolute;
+  }
+
+  perfect-arrow {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    // z-index: -1;
+  }
