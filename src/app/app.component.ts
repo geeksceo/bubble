@@ -6,6 +6,9 @@ import { SynapsNodeComponent } from './components/synaps-node/synaps-node.compon
 import { SynapsEdgeComponent } from './components/synaps-edge/synaps-edge.component';
 import { DraggableBox } from './draggable-box';
 import { PerfectArrow } from 'perfect-arrow';
+import { EntityBox } from './entity-box';
+import { SInput } from './input';
+import { SynapsFieldComponent } from './components/synaps-field/synaps-field.component';
 
 
 @Component({
@@ -14,10 +17,11 @@ import { PerfectArrow } from 'perfect-arrow';
   imports: [
     RouterOutlet,
     ReactiveFormsModule, RightClickDirective,
-    SynapsNodeComponent, SynapsEdgeComponent
+    SynapsNodeComponent, SynapsEdgeComponent, SynapsFieldComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
   title = 'synaps';
@@ -35,6 +39,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     DraggableBox.register();
+    EntityBox.register();
+    SInput.register();
     PerfectArrow.register();
 
     this.nodes = [

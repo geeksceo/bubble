@@ -1,6 +1,7 @@
 {
   "name": "synaps",
   "version": "0.0.0",
+  "homepage": "https://synaps.serber.co",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

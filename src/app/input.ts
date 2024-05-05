@@ -1,0 +1,32 @@
+
+export class SInput extends HTMLInputElement {
+
+  static tagName = 's-input';
+
+    static register() {
+      customElements.define(this.tagName, this);
+    }
+
+    constructor() {
+      super();
+
+      this.onMouseDrag = this.onMouseDrag.bind(this);
+
+      this.addEventListener('', () => {
+        window.addEventListener('mousemove', this.onMouseDrag);
+      });
+
+      window.addEventListener('mouseup', () => {
+        window.removeEventListener('mousemove', this.onMouseDrag);
+      });
+    }
+
+    onMouseDrag({ movementX = 0, movementY = 0 }) {
+      const { left, top } = window.getComputedStyle(this);
+      let leftValue = parseInt(left);
+      let topValue = parseInt(top);
+      this.style.left = `${leftValue + movementX}px`;
+      this.style.top = `${topValue + movementY}px`;
+    }
+
+}

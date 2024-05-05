@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  entity-box {
+    @apply w-44 min-h-44 border-[2px] hover:border-neutral-400 border-dashed p-1 pr-0 flex absolute shadow;
+  }
+
+  entity-box .entity {
+    @apply grow shadow bg-neutral-200 rounded;
+  }
+
+  entity-box .entity .label {
+    @apply w-full h-8 border border-b-neutral-400 text-center overflow-hidden bg-transparent;
+  }
+
+  entiti-box .entity .fields {
+    @apply w-full bg-neutral-300 flex flex-col overflow-hidden  bg-transparent;
+  }
+
+  entity-box .actions {
+    @apply w-8 h-full flex flex-col items-center justify-center;
+  }
+
+}
+
 body {
     overflow: hidden;
 }
