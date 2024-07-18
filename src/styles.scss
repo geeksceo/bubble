@@ -4,11 +4,15 @@
 
 @layer base {
   entity-box {
-    @apply w-44 min-h-44 border-[2px] hover:border-neutral-400 border-dashed p-1 pr-0 flex absolute shadow;
+    @apply min-w-20 w-28 min-h-16 p-1 pr-0 flex absolute;
   }
 
   entity-box .entity {
-    @apply grow shadow bg-neutral-200 rounded;
+    @apply grow shadow bg-neutral-200 rounded border-[1.5px] border-transparent;
+  }
+
+  entity-box:hover .entity {
+    @apply hover:border-neutral-400 border-dashed;
   }
 
   entity-box .entity .label {
@@ -20,9 +24,26 @@
   }
 
   entity-box .actions {
-    @apply w-8 h-full flex flex-col items-center justify-center;
+    @apply w-8 h-full opacity-0 flex flex-col items-center justify-center transition-all;
   }
 
+  entity-box:hover .actions,
+  entity-box:focus .actions {
+    @apply opacity-100;
+  }
+}
+
+@layer components {
+  .platform-btn {
+    @apply hover:cursor-pointer hover:bg-gray-200 w-10 h-8 rounded flex items-center justify-center;
+  }
+
+  .platform-btn.active {
+    @apply bg-teal-600;
+  }
+  .platform-btn.active svg {
+    @apply text-white;
+  }
 }
 
 body {
