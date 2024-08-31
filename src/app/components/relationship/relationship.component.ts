@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-relationship',
@@ -8,6 +8,10 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrl: './relationship.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class RelationshipComponent {
+export class RelationshipComponent implements OnInit {
+
+  source!: number; target!: number;
+
+  ngOnInit(): void { }
 
 }

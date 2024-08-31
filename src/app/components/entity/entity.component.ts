@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-entity',
@@ -8,6 +8,11 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrl: './entity.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class EntityComponent {
+export class EntityComponent implements OnInit {
+
+  @Input()
+  node!: {id: number, left: string, top: string};
+
+  ngOnInit(): void { }
 
 }
