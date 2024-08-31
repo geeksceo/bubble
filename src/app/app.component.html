@@ -10,13 +10,24 @@
 
     }
 
-    @for (edge of edges; track $index) {
+    @for (rsh of relationships; track $index) {
+      <app-relationship [rsh]="rsh"></app-relationship>
+    }
+
+    <!-- @for (edge of edges; track $index) {
       <app-synaps-edge [edge]="edge" ></app-synaps-edge>
+    } -->
+    @for (rsh of relationships; track $index) {
+      <!-- <app-synaps-edge [edge]="edge" ></app-synaps-edge> -->
+      <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e1.toString()"></perfect-arrow>
+      <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e2.toString()"></perfect-arrow>
+
     }
 
 
       <div class="absolute left-96 top-10 flex gap-4 items-center">
-        <a class=" bg-teal-600 px-4 py-1 text-white" (click)="addNode($event)" href="">Add node</a>
+        <a class=" bg-teal-600 px-4 py-1 text-white" (click)="addNode($event)" href="">Add entity</a>
+        <a class=" bg-teal-600 px-4 py-1 text-white" (click)="addRelationship($event)" href="">Add relationship</a>
 
           <form class="flex flex-col gap-3" [formGroup]="form" (ngSubmit)="onSubmit()" >
             <select class="p-2" formControlName="source" id="">
@@ -45,7 +56,7 @@
       </div> -->
 
 
-      <app-relationship></app-relationship>
+
 
   </div>
 

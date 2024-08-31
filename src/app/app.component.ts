@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RightClickDirective } from './core/directives/right-click.directive';
@@ -30,13 +30,14 @@ import { RelationshipComponent } from "./components/relationship/relationship.co
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  schemas: []
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
   title = 'synaps';
 
   nodes !: {id: number, left: string, top: string}[];
   edges !: {source: number, target: number}[];
+  relationships !: {id: number, e1: number, e2: number, fields: string[]}[];
 
   form = this.fb.nonNullable.group({
     source: [0, Validators.required],
@@ -62,11 +63,25 @@ export class AppComponent implements OnInit {
     this.edges = [
       {source: 1, target: 2},
     ];
+
+    this.relationships = [
+      { id: 1, e1: 1, e2: 3, fields: []},
+    ];
   }
 
   addNode(e: Event) {
     e.preventDefault();
     this.nodes.push({id: this.nodes.length + 1, left: '320px', top: '80px'});
+  }
+
+  addRelationship(e: Event) {
+    e.preventDefault();
+    this.relationships.push({
+      id: this.relationships.length + 1,
+      e1: 0,
+      e2: 0,
+      fields: []
+    });
   }
 
   onClick(ev: MouseEvent) {
@@ -77,7 +92,14 @@ export class AppComponent implements OnInit {
     const newEdge: {source: number, target: number} = {
       source: parseInt(this.form.getRawValue().source.toString()),
       target: parseInt(this.form.getRawValue().target.toString()),
-    } ;
+    };
+
+    this.relationships.push({
+      id: this.relationships.length + 1,
+      e1: parseInt(this.form.getRawValue().source.toString()),
+      e2: parseInt(this.form.getRawValue().target.toString()),
+      fields: []
+    });
     console.log(newEdge);
     if(newEdge.source != newEdge.target)
       this.edges.push(newEdge);

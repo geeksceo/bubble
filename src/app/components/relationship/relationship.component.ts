@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-relationship',
@@ -11,6 +11,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 export class RelationshipComponent implements OnInit {
 
   source!: number; target!: number;
+  @Input()
+  rsh!: {id: number, e1: number, e2: number, fields: string[]};
 
   ngOnInit(): void { }
 
