@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RightClickDirective } from './core/directives/right-click.directive';
@@ -10,6 +10,10 @@ import { EntityBox } from './entity-box';
 import { Relationship } from './relationship';
 import { SInput } from './input';
 import { SynapsFieldComponent } from './components/synaps-field/synaps-field.component';
+import { HeaderComponent } from "./components/header/header.component";
+import { FooterToolsComponent } from "./components/footer-tools/footer-tools.component";
+import { EntityComponent } from "./components/entity/entity.component";
+import { RelationshipComponent } from "./components/relationship/relationship.component";
 
 
 @Component({
@@ -18,11 +22,15 @@ import { SynapsFieldComponent } from './components/synaps-field/synaps-field.com
   imports: [
     RouterOutlet,
     ReactiveFormsModule, RightClickDirective,
-    SynapsNodeComponent, SynapsEdgeComponent, SynapsFieldComponent
-  ],
+    SynapsNodeComponent, SynapsEdgeComponent, SynapsFieldComponent,
+    HeaderComponent,
+    FooterToolsComponent,
+    EntityComponent,
+    RelationshipComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: []
 })
 export class AppComponent implements OnInit {
   title = 'synaps';
