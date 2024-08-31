@@ -19,8 +19,10 @@
     } -->
     @for (rsh of relationships; track $index) {
       <!-- <app-synaps-edge [edge]="edge" ></app-synaps-edge> -->
-      <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e1.toString()"></perfect-arrow>
-      <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e2.toString()"></perfect-arrow>
+      @if (rsh.id != 0 && rsh.e1 != 0 && rsh.e2 != 0) {
+        <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e1.toString()"></perfect-arrow>
+        <perfect-arrow [source]="'#relationship'+rsh.id.toString()" [target]="'#entity'+rsh.e2.toString()"></perfect-arrow>
+      }
 
     }
 
