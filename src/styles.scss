@@ -7,6 +7,10 @@
     @apply min-w-20 w-28 min-h-16 p-1 pr-0 flex absolute;
   }
 
+  relationship-box {
+    @apply min-w-20 w-28 min-h-16 p-1 pr-0 flex absolute bg-red-500 rounded-full;
+  }
+
   entity-box .entity {
     @apply grow shadow bg-neutral-200 rounded border-[1.5px] border-transparent;
   }

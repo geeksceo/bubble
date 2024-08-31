@@ -1,12 +1,13 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RightClickDirective } from './directives/right-click.directive';
+import { RightClickDirective } from './core/directives/right-click.directive';
 import { SynapsNodeComponent } from './components/synaps-node/synaps-node.component';
 import { SynapsEdgeComponent } from './components/synaps-edge/synaps-edge.component';
 import { DraggableBox } from './draggable-box';
 import { PerfectArrow } from 'perfect-arrow';
 import { EntityBox } from './entity-box';
+import { Relationship } from './relationship';
 import { SInput } from './input';
 import { SynapsFieldComponent } from './components/synaps-field/synaps-field.component';
 
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit {
 
     DraggableBox.register();
     EntityBox.register();
+    Relationship.register();
     SInput.register();
     PerfectArrow.register();
 
