@@ -34,7 +34,7 @@ import { RelationshipComponent } from "./components/relationship/relationship.co
 })
 export class AppComponent implements OnInit {
   title = 'synaps';
-
+  isDisplayContextMenu: boolean = false;
   nodes !: {id: number, left: string, top: string}[];
   edges !: {source: number, target: number}[];
   relationships !: {id: number, e1: number, e2: number, fields: string[]}[];
@@ -84,17 +84,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onClick(ev: MouseEvent) {
+  onClick(e: MouseEvent) {
     console.log('rtclick app component ts');
-    const x = ev.clientX;
-    const y = ev.clientY;
-    console.log(x);
-    console.log(y);
     const elt = document.getElementById('contextmenu');
-    elt!.style.left = `${x+100}px`;
-    elt!.style.top = `${y+100}px`;
-    elt!.style.display = 'block';
-   }
+    if(this.isDisplayContextMenu) {
+      elt!.style.display = 'none';
+    } else {
+      elt!.style.left = `${e.clientX+100}px`;
+      elt!.style.top = `${e.clientY+100}px`;
+      elt!.style.display = 'block';
+    }
+    this.isDisplayContextMenu = !this.isDisplayContextMenu;
+  }
 
   onSubmit() {
     const newEdge: {source: number, target: number} = {
