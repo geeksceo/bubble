@@ -12,15 +12,15 @@
   }
 
   entity-box .entity {
-    @apply grow shadow bg-neutral-200 rounded border-[1.5px] border-transparent;
+    @apply grow bg-white border-[1px] border-black; // bg-neutral-200
   }
 
-  entity-box:hover .entity {
-    @apply hover:border-neutral-400 border-dashed;
-  }
+  // entity-box:hover .entity {
+  //   @apply hover:border-black border-dashed transition-all;
+  // }
 
   entity-box .entity .label {
-    @apply w-full h-8 border border-b-neutral-400 text-center overflow-hidden bg-transparent;
+    @apply w-full h-8 border border-transparent border-b-neutral-400 text-center overflow-hidden bg-transparent;
   }
 
   entiti-box .entity .fields {
@@ -52,23 +52,33 @@
 
 body {
     overflow: hidden;
+    background-color: antiquewhite;
+    background-image: linear-gradient(to right, transparent 0px, transparent calc(100% - 1px), #d1d5db 1px),
+                        linear-gradient(to bottom, transparent 0px, transparent calc(100% - 1px), #d1d5db 1px);
+    background-size: 20px 20px;
 }
 
 draggable-box {
-    display: block;
-    width: 50px;
-    height: 50px;
-    border: 2px solid black;
-    position: absolute;
-  }
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  position: absolute;
+}
 
-  perfect-arrow {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    // z-index: -1;
-  }
+perfect-arrow {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  // z-index: -1;
+}
+
+#contextmenu {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: none;
+}

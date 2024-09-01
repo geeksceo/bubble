@@ -1,8 +1,8 @@
-<div class="w-screen ">
+<div class="w-screen bg-red-600" (contextmenu)="onClick($event); false ">
 
   <!-- <app-header></app-header> -->
 
-  <div class="text-sm z-10" (rtclick)="onClick($event)">
+  <div class="text-sm z-10 bg-red-600" >
 
     @for (node of nodes; track $index) {
       <!-- <app-synaps-node [node]="node" ></app-synaps-node> -->
@@ -60,8 +60,18 @@
 
 
 
+
   </div>
 
   <!-- <app-footer-tools></app-footer-tools> -->
 
+</div>
+
+<div id="contextmenu" class="min-w-20 w-40 h-64 min-h-16 p-4 flex  backdrop-blur-sm bg-gray-200/50 border rounded-md">
+  <div class="flex flex-col gap-2 text-sm text-gray-600">
+    <a class="">Back</a>
+    <a class="">Forward</a>
+    <a class="">New entity</a>
+    <a class="">New relationship</a>
+  </div>
 </div>
