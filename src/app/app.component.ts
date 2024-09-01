@@ -64,8 +64,7 @@ export class AppComponent implements OnInit {
       {source: 1, target: 2},
     ];
 
-    this.relationships = [
-      { id: 1, e1: 1, e2: 3, fields: []},
+    this.relationships = [ { id: 1, e1: 1, e2: 3, fields: []},
     ];
   }
 
