@@ -60,13 +60,9 @@ export class AppComponent implements OnInit {
       {id: 3, left: '200px', top: '100px'},
     ];
 
-    this.edges = [
-      {source: 1, target: 2},
-    ];
+    this.edges = [ {source: 1, target: 2}, ];
 
-    this.relationships = [
-      { id: 1, e1: 1, e2: 3, fields: []},
-    ];
+    this.relationships = [ { id: 1, e1: 1, e2: 3, fields: []}, ];
   }
 
   addNode(e: Event) {
