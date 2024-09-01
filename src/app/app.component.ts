@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     target: [0, Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private element: ElementRef<HTMLElement>) {}
+  constructor(private fb: FormBuilder, private elementRef: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
 
@@ -86,6 +86,14 @@ export class AppComponent implements OnInit {
 
   onClick(ev: MouseEvent) {
     console.log('rtclick app component ts');
+    const x = ev.clientX;
+    const y = ev.clientY;
+    console.log(x);
+    console.log(y);
+    const elt = document.getElementById('contextmenu');
+    elt!.style.left = `${x+100}px`;
+    elt!.style.top = `${y+100}px`;
+    elt!.style.display = 'block';
    }
 
   onSubmit() {
