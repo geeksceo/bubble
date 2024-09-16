@@ -2,18 +2,18 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit } f
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RightClickDirective } from './core/directives/right-click.directive';
-import { SynapsNodeComponent } from './components/synaps-node/synaps-node.component';
-import { SynapsEdgeComponent } from './components/synaps-edge/synaps-edge.component';
-import { DraggableBox } from './draggable-box';
+import { SynapsNodeComponent } from './ui/components/synaps-node/synaps-node.component';
+import { SynapsEdgeComponent } from './ui/components/synaps-edge/synaps-edge.component';
+import { DraggableBox } from './core/draggable-box';
 import { PerfectArrow } from 'perfect-arrow';
-import { EntityBox } from './entity-box';
-import { Relationship } from './relationship';
-import { SInput } from './input';
-import { SynapsFieldComponent } from './components/synaps-field/synaps-field.component';
-import { HeaderComponent } from "./components/header/header.component";
-import { FooterToolsComponent } from "./components/footer-tools/footer-tools.component";
-import { EntityComponent } from "./components/entity/entity.component";
-import { RelationshipComponent } from "./components/relationship/relationship.component";
+import { EntityBox } from './core/entity-box';
+import { Relationship } from './core/relationship';
+import { SInput } from './core/input';
+import { SynapsFieldComponent } from './ui/components/synaps-field/synaps-field.component';
+import { HeaderComponent } from "./ui/components/header/header.component";
+import { FooterToolsComponent } from "./ui/components/footer-tools/footer-tools.component";
+import { EntityComponent } from "./ui/components/entity/entity.component";
+import { RelationshipComponent } from "./ui/components/relationship/relationship.component";
 
 
 @Component({
